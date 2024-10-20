@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	
+		<title> MX player </title>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://kit.fontawesome.com/8fbd29676c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+	<div class="music-player">
+	<nav>
+		<div class="circle">
+			<i class="fa-solid fa-angle-left"></i>
+		</div>
+		<div class="circle">
+			<i class="fa-solid fa-bars"></i>
+		</div>
+		
+	</nav>
+	<img src="C:\Users\YASHRAJSINH\Desktop\WDT Project\music player\new radha krishna.jpg" class="song-img">
+	<h1> Despacito</h1>
+	<p> Hanshraj Raghuvanshi</p>
+	
+	<audio controls id="song">
+	<source src="RADHA_RANI_LAGE____SIMPAL_KHAREL_NEW_SONG___RADHA_KRISHNA_BHAJAN_2023___BHAKTI_SONG(48k).mp3" type="audio/mpeg">
+	</audio>
+	<input type="range" value="0" id="progress">
+	<div class="controls">
+		<div><i class="fa-solid fa-backward"></i></div>
+		<div onclick="playpause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+		<div><i class="fa-solid fa-forward"></i></div>
+	</div>
+	
+	
+	</div>
+</div>
+<script>
+
+ let progress = document.getElementById("progress");
+ let progress = document.getElementById("song");
+ let progress = document.getElementById("ctrlIcon");
+ 
+	song.omloadedmetadata = function(){
+		progress.max = song.duration;
+		progress.value = song.currentTime;
+	}
+	
+	function playpause(){
+		if(ctrlIcon.classlist.contains("fa-pause")){
+			song.pause();
+			ctrlIcon.classlist.remove("fa-pause");
+			ctrlIcon.classlist.add("fa-play");
+		}
+		else{
+			song.play();
+			ctrlIcon.classlist.add("fa-pause");
+			ctrlIcon.classlist.remove("fa-play");
+		}
+	}
+	if(song.play()){
+		setInterval(()=>{
+		progress.value = song.currentTime;
+		},500)
+	}
+	
+	
+	progress.onchange = function(){
+		song.play();
+		song.currentTime = progress.value;
+		ctrlIcon.classlist.add("fa-pause");
+		ctrlIcon.remove("fa-play");
+	}
+</script>
+	
+	
+	
+	
+</body>
+</html>
